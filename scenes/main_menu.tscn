@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://xv8fvvlnha4u"]
+
+[ext_resource type="Script" uid="uid://xkmi2ksvpxqx" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=1423203565]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1600647269]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1540020948]
+layout_mode = 2
+text = "Nera"
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=880936242]
+layout_mode = 2
+text = "11th PCM Timetable • Can You Beat a Rigged Schedule?"
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=229197456]
+layout_mode = 2
+text = "PlayButton"
+
+[node name="CutscenePreviewButton" type="Button" parent="VBoxContainer" unique_id=37387310]
+layout_mode = 2
+text = "Watch Ending Cutscene"
