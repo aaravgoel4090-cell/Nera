@@ -343,14 +343,12 @@ export class GameEngine {
     this.notify('The date changes.', 'info')
   }
 
+  /** A night's sleep is credited to the day it was scheduled on, even if it
+   *  stretches into the next morning (or across a week boundary). */
   private sleepMinutesOnDay(day: number): number {
-    const dayStart = absoluteMinutes(day, 0)
-    const dayEnd = dayStart + MINUTES_PER_DAY
     return this.state.placed.reduce((total, task) => {
-      if (task.category !== 'sleep') return total
-      const start = absoluteMinutes(task.day, task.startMinutes)
-      const end = start + task.effectiveDurationMinutes
-      return total + Math.max(0, Math.min(end, dayEnd) - Math.max(start, dayStart))
+      if (task.category !== 'sleep' || task.day !== day) return total
+      return total + Math.min(task.effectiveDurationMinutes, 12 * 60)
     }, 0)
   }
 

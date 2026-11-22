@@ -198,11 +198,17 @@ export function generateFixedTasks(
   return tasks
 }
 
-/** Sleep and free time always appear so Nera can look after herself. */
+/** Sleep appears on every one of the seven days, including Sunday. */
 export function generateCareTasks(rng: SeededRng, dayIndex: number): Task[] {
-  const nextDay = Math.min(6, dayIndex + 1)
+  const lastDay = dayIndex === 6
   return [
-    instantiate(define('sleep'), rng, nextDay, 12 * 60, 'Flexible · right edge is open'),
+    instantiate(
+      define('sleep'),
+      rng,
+      lastDay ? 6 : dayIndex + 1,
+      lastDay ? 23 * 60 + 45 : 12 * 60,
+      'Flexible · right edge is open',
+    ),
     instantiate(define('free'), rng, dayIndex, 23 * 60 + 45, 'Flexible · fills a free gap'),
   ]
 }

@@ -88,14 +88,17 @@ export function expandFlexible(
   if (task.category === 'sleep' && gapEnd === MINUTES_PER_DAY) {
     // End-of-day sleep also covers the next morning, stopping at the first
     // real commitment on the following day.
-    const nextDayFirst = placed
+    const commitments = placed
       .filter((item) =>
         item.id !== ignoreId &&
         item.day === day + 1 &&
         item.category !== 'free' &&
         item.category !== 'sleep',
       )
-      .reduce((earliest, item) => Math.min(earliest, item.startMinutes), MINUTES_PER_DAY)
+      .map((item) => item.startMinutes)
+    // Seven days wrap to Monday next week, whose tasks do not exist yet.
+    // Without a known first commitment, assume an 08:00 start.
+    const nextDayFirst = commitments.length > 0 ? Math.min(...commitments) : 8 * 60
     durationMinutes += nextDayFirst
   }
 
