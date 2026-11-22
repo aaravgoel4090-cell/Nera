@@ -1,16 +1,17 @@
+# Nera
+
 Nera is a timetable management game mixed with elements of visual novels.
 
-story:
-You are Nera, a student of class 11th pcm and have applied to coaching, and school and things. You dream to fix education.
-The timetable is where everything happens. You take in tasks and add them to your timetable schedule. While ensuring Nera is ok(by ensuring his stats dont go kaboom.)
-But you can never win this game, its rigged from the start. and when you get soo low, the only direction to go is up. ending with a cutscene where she follows her passion for fixing education
-By learning CS, researching the indian education system, trying out new ways to learn and even participating in places like hackclub where she finds like minded people with whom she collabs to fix education!
+You are Nera, a student of class 11th PCM enrolled in school and coaching. You dream of fixing education. The timetable is where everything happens: incoming tasks have to be scheduled without overlaps while keeping Nera's stats from going kaboom. You can never really win — the system is rigged from the start — and when things get low enough, the only direction is up. The ending follows Nera's passion: learning CS, researching the Indian education system, trying new ways to learn, and finding like-minded people through Hack Club.
 
-basic timetable functioning is complete.
+## Play
 
-Future work:
-1.fix spacing
-2.add cutscenes
-3.tutorials
-4.better code
-5.UI rework
+The game lives in [`web/`](web/README.md) as a React + TypeScript + Vite app.
+
+```bash
+cd web
+npm install
+npm run dev
+```
+
+Production build: `cd web && npm run build` → output in `web/dist/`.
